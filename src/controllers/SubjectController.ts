@@ -5,6 +5,7 @@ import { IStorage } from "../frameworks/Storage/IStorage";
 import { CloudStorageService } from "../frameworks/Storage/CloudStorageService";
 import { UseCaseStoreFile } from "../useCases/store.file";
 import { AwsStorageService } from "../frameworks/Storage/AwsStorageService";
+import { signJwt } from "../helpers/JwtServices";
 
 export class SubjectController {
 
@@ -38,6 +39,25 @@ export class SubjectController {
       message: 'File Stored',
       statusCode: 200
     });
+  }
+
+  async auth(request: Request, response: Response) {
+    
+    const user = {
+      name: 'Fabio'
+    }
+    
+    const accessToken = signJwt(
+      { ...user, sub: 'owner' },
+      { expiresIn: '60h'}
+    )
+
+    const refreshToken = signJwt(
+      { ...user, sub: 'owner' },
+      { expiresIn: '60h'}
+    )
+
+    return response.send({ accessToken, refreshToken })
   }
 
 }
