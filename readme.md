@@ -8,4 +8,5 @@
         "dev": "nodemon --exec ts-node ./src/index.ts"
       },
   - create tsconfig.json file
-  - create data-source file to configure typeORM => see beekeeper (tool to manage postgres database)
+  - create data-source file to configure typeORM => see beekeeper (tool to manage postgres database
+  - npm i express-async-errors to handle with errors middlewares with async functions

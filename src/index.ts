@@ -1,6 +1,8 @@
+import 'express-async-errors'
 import express from "express";
 import { AppDataSource } from "./data-source";
 import routes from "./routes";
+import { httpError } from "./middlewares/httpError";
 
 AppDataSource.initialize()
   .then(() => {
@@ -8,6 +10,7 @@ AppDataSource.initialize()
 
     app.use(express.json())
     app.use(routes)
+    app.use(httpError)
     app.get('/', (req, res) => {
       return res.json('Working')
     })
