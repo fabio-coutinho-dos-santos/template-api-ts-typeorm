@@ -10,3 +10,5 @@
   - create tsconfig.json file
   - create data-source file to configure typeORM => see beekeeper (tool to manage postgres database
   - npm i express-async-errors to handle with errors middlewares with async functions
+  - npm i swagger-ui-express @types/swagger-ui-express -D
+  - npm i jsonwebtoken npm i @types/jsonwebtoken -D
